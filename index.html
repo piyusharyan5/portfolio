@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Piyush Aryan - Web Developer</title>
+<meta name="description" content="Piyush Aryan — First-Year CSE student at Government Engineering College Palamu. Web Developer, Freelancer, Open Source Contributor building FocusFlows and other digital products." />
+<meta name="theme-color" content="#e8ebe6" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Piyush Aryan — Web Developer" />
+<meta property="og:description" content="Building digital experiences that combine creativity, functionality, and innovation." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- Ambient background blobs -->
+<div class="ambient" aria-hidden="true">
+  <span class="blob blob--lime"></span>
+  <span class="blob blob--sage"></span>
+  <span class="blob blob--cyan"></span>
+</div>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav-bar" id="navBar">
+  <div class="nav-bar__inner">
+    <a href="#hero" class="nav-logo">Piyush<span>.</span>Aryan</a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#project" class="nav-link">Work</a>
+      <a href="#achievements" class="nav-link">Achievements</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="paletteBtn" aria-label="Open command palette" title="Command palette (Ctrl K)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="kbd">⌘K</span>
+      </button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19v2.4M4.2 4.2l1.7 1.7M18 18l1.7 1.7M2.5 12h2.4M19 12h2.4M4.2 19.7l1.7-1.7M18 6l1.7-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#experience" class="nav-link">Experience</a>
+    <a href="#project" class="nav-link">Work</a>
+    <a href="#achievements" class="nav-link">Achievements</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow reveal">Ramgarh, Jharkhand — open to work</p>
+
+        <h1 class="hero__name reveal">
+          Piyush<br />Aryan
+        </h1>
+
+        <p class="hero__role reveal">
+          <span class="hero__role-prefix">I'm a</span>
+          <span class="role-switcher" id="roleSwitcher" aria-live="polite">Web Developer</span>
+        </p>
+
+        <p class="hero__motto reveal">
+          Building digital experiences that combine creativity, functionality, and innovation.
+        </p>
+
+        <div class="hero__ctas reveal">
+          <a href="#project" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--tertiary">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero__panel reveal">
+        <!-- Signature interactive widget, modeled on a from/to converter -->
+        <div class="converter-card" id="converterCard">
+          <p class="converter-card__label">Build estimator</p>
+
+          <div class="converter-row">
+            <span class="converter-row__tag">FROM</span>
+            <input class="converter-row__input" id="converterFrom" type="text" value="An idea on a napkin" aria-label="Starting point" />
+          </div>
+
+          <button class="converter-swap" id="converterSwap" aria-label="Swap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 4v13M7 17l-4-4M7 17l4-4M17 20V7M17 7l4 4M17 7l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="converter-row">
+            <span class="converter-row__tag converter-row__tag--accent">TO</span>
+            <input class="converter-row__input" id="converterTo" type="text" value="A shipped product" aria-label="End result" />
+          </div>
+
+          <p class="converter-card__rate" id="converterRate">≈ powered by coffee, Git commits &amp; late-night debugging</p>
+        </div>
+
+        <div class="float-card float-card--1">
+          <span class="float-card__dot"></span> First Year CSE Student
+        </div>
+        <div class="float-card float-card--2">
+          <span class="float-card__dot"></span> Freelancer
+        </div>
+        <div class="float-card float-card--3">
+          <span class="float-card__dot"></span> SIH Internal Hackathon Winner
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-cue" aria-label="Scroll to content">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section--soft" id="about">
+    <div class="container">
+      <p class="section-eyebrow reveal">About</p>
+      <h2 class="section-title reveal">Still early. Already building.</h2>
+
+      <div class="about__grid">
+        <div class="about__story reveal">
+          <p>
+            I'm a first-year Computer Science Engineering student at Government Engineering College, Palamu  which means I'm
+            still early in the formal part of this, and deliberately impatient about the rest. Instead of waiting for a syllabus
+            to tell me when I'm ready, I've been shipping small products, taking on freelance work, and contributing wherever
+            open source will have me.
+          </p>
+          <p>
+            What pulls me toward web development is the immediacy of it  write something, refresh a browser, and watch an idea
+            turn into an interface someone can actually use. I built <strong>FocusFlows</strong> because I wanted a productivity
+            tool that felt as calm as the focus it's supposed to protect, and that instinct  design first, then engineer to match it
+             is how I approach most things I build now.
+          </p>
+          <p>
+            Internships, hackathons, and campus ambassador programs have been my classroom outside the classroom. Each one has
+            been less about the certificate and more about getting comfortable shipping under real constraints, with real
+            feedback, on someone else's timeline.
+          </p>
+        </div>
+
+        <div class="about__timeline reveal" aria-label="Timeline">
+          <div class="timeline-item">
+            <span class="timeline-item__marker"></span>
+            <div>
+              <p class="timeline-item__title">Joined GEC Palamu</p>
+              <p class="timeline-item__meta">B.Tech, Computer Science Engineering — First Year</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-item__marker"></span>
+            <div>
+              <p class="timeline-item__title">First lines of production code</p>
+              <p class="timeline-item__meta">HTML, CSS &amp; JavaScript, self-taught alongside coursework</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-item__marker"></span>
+            <div>
+              <p class="timeline-item__title">Internships &amp; ambassador programs</p>
+              <p class="timeline-item__meta">ApexPlanet, CodeAlpha, SkillCraft, JGIIS, Internshala, IIT Delhi E-Cell</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-item__marker"></span>
+            <div>
+              <p class="timeline-item__title">3rd Prize — SIH Internal Hackathon</p>
+              <p class="timeline-item__meta">Built and presented under a 24-hour clock</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-item__marker"></span>
+            <div>
+              <p class="timeline-item__title">FocusFlows, live</p>
+              <p class="timeline-item__meta">Flagship project, shipped and in active use</p>
+            </div>
+          </div>
+          <div class="timeline-item timeline-item--current">
+            <span class="timeline-item__marker"></span>
+            <div>
+              <p class="timeline-item__title">Now</p>
+              <p class="timeline-item__meta">Open to freelance work, internships, and open-source collaboration</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <p class="section-eyebrow reveal">Skills</p>
+      <h2 class="section-title reveal">The toolkit so far.</h2>
+      <p class="section-lead reveal">Not exhaustive — just everything I currently reach for without looking it up.</p>
+
+      <div class="skills__grid">
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Frontend</h3>
+          <div class="skill-bar" data-level="90">
+            <div class="skill-bar__head"><span>HTML5</span><span class="skill-bar__pct">90%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="85">
+            <div class="skill-bar__head"><span>CSS3</span><span class="skill-bar__pct">85%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="80">
+            <div class="skill-bar__head"><span>JavaScript</span><span class="skill-bar__pct">80%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Backend &amp; Database</h3>
+          <div class="skill-bar" data-level="72">
+            <div class="skill-bar__head"><span>Firebase</span><span class="skill-bar__pct">72%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="65">
+            <div class="skill-bar__head"><span>SQL</span><span class="skill-bar__pct">65%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Programming</h3>
+          <div class="skill-bar" data-level="75">
+            <div class="skill-bar__head"><span>Java</span><span class="skill-bar__pct">75%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Tools</h3>
+          <div class="skill-bar" data-level="80">
+            <div class="skill-bar__head"><span>Git</span><span class="skill-bar__pct">80%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="85">
+            <div class="skill-bar__head"><span>GitHub</span><span class="skill-bar__pct">85%</span></div>
+            <div class="skill-bar__track"><div class="skill-bar__fill"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section section--soft" id="experience">
+    <div class="container">
+      <p class="section-eyebrow reveal">Experience</p>
+      <h2 class="section-title reveal">Where I've put it into practice.</h2>
+
+      <div class="exp-timeline">
+
+        <div class="exp-item reveal">
+          <div class="exp-item__rail"><span></span></div>
+          <div class="exp-item__card">
+            <p class="exp-item__role">Web Development Intern</p>
+            <p class="exp-item__org">ApexPlanet Software</p>
+            <p class="exp-item__desc">Worked on real client-facing front-end tasks, translating designs into responsive, production-ready interfaces.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-item__rail"><span></span></div>
+          <div class="exp-item__card">
+            <p class="exp-item__role">Interactive Learning Program</p>
+            <p class="exp-item__org">JGIIS</p>
+            <p class="exp-item__desc">Structured, hands-on training in public interaction and presenting.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-item__rail"><span></span></div>
+          <div class="exp-item__card">
+            <p class="exp-item__role">Development Internship</p>
+            <p class="exp-item__org">CodeAlpha</p>
+            <p class="exp-item__desc">Delivered a set of independent development tasks against deadlines, with code review feedback loops.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-item__rail"><span></span></div>
+          <div class="exp-item__card">
+            <p class="exp-item__role">Development Internship</p>
+            <p class="exp-item__org">SkillCraft Technology</p>
+            <p class="exp-item__desc">Built small applied projects to sharpen practical development skills outside the classroom.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-item__rail"><span></span></div>
+          <div class="exp-item__card">
+            <p class="exp-item__role">Campus Ambassador</p>
+            <p class="exp-item__org">Internshala</p>
+            <p class="exp-item__desc">Represented Internshala on campus, helping peers discover internship and learning opportunities.</p>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-item__rail"><span></span></div>
+          <div class="exp-item__card">
+            <p class="exp-item__role">Campus Ambassador</p>
+            <p class="exp-item__org">IIT Delhi E-Cell</p>
+            <p class="exp-item__desc">Championed entrepreneurship and innovation culture among students at GEC Palamu.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECT -->
+  <section class="section" id="project">
+    <div class="container">
+      <p class="section-eyebrow reveal">Featured Work</p>
+      <h2 class="section-title reveal">FocusFlows</h2>
+      <p class="section-lead reveal">A productivity platform for people who'd rather start a focus session than start another tab.</p>
+
+      <div class="project-card reveal">
+        <div class="project-card__visual">
+          <div class="device-mock">
+            <div class="device-mock__bar"><span></span><span></span><span></span></div>
+            <div class="device-mock__screen">
+              <div class="device-mock__nav">
+                <span class="device-mock__dot"></span>
+                <span class="device-mock__pill"></span>
+                <span class="device-mock__pill device-mock__pill--sm"></span>
+              </div>
+              <div class="device-mock__body">
+                <div class="device-mock__card">
+                  <span class="device-mock__line device-mock__line--lg"></span>
+                  <span class="device-mock__line"></span>
+                  <span class="device-mock__line device-mock__line--short"></span>
+                </div>
+                <div class="device-mock__card device-mock__card--accent">
+                  <span class="device-mock__ring"></span>
+                  <span class="device-mock__line device-mock__line--short"></span>
+                </div>
+                <div class="device-mock__card">
+                  <span class="device-mock__line"></span>
+                  <span class="device-mock__line device-mock__line--short"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card__copy">
+          <p class="project-card__tag">Flagship project · Live</p>
+          <p class="project-card__desc">
+            FocusFlows helps people manage tasks, set goals, and run focus sessions from one calm dashboard — built to feel
+            less like another tracker and more like a quiet room to get work done in.
+          </p>
+
+          <ul class="project-card__features">
+            <li>Task management</li>
+            <li>Goal tracking</li>
+            <li>Productivity dashboard</li>
+            <li>Modern UI/UX</li>
+            <li>Fully responsive design</li>
+          </ul>
+
+          <div class="project-card__ctas">
+            <a href="https://focusflowss.vercel.app" target="_blank" rel="noopener" class="btn btn--primary">Live Demo</a>
+            <a href="https://github.com/piyusharyan5" target="_blank" rel="noopener" class="btn btn--tertiary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.49 2.87 8.3 6.84 9.65.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.56 2.36 1.11 2.93.85.09-.66.34-1.11.62-1.36-2.22-.26-4.55-1.13-4.55-5.02 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.31.1-2.72 0 0 .84-.27 2.75 1.04a9.4 9.4 0 0 1 5 0c1.91-1.31 2.75-1.04 2.75-1.04.55 1.41.2 2.46.1 2.72.64.71 1.03 1.62 1.03 2.73 0 3.9-2.34 4.76-4.57 5.01.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+              View Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="section section--soft" id="achievements">
+    <div class="container">
+      <p class="section-eyebrow reveal">Achievements</p>
+      <h2 class="section-title reveal">A short, honest list.</h2>
+
+      <div class="achv-grid">
+        <div class="achv-card reveal">
+          <p class="achv-card__num" data-count="3" data-suffix="rd">0</p>
+          <p class="achv-card__label">Prize — SIH Internal Hackathon</p>
+        </div>
+        <div class="achv-card achv-card--dark reveal">
+          <p class="achv-card__num" data-count="4" data-suffix="+">0</p>
+          <p class="achv-card__label">Web development internships completed</p>
+        </div>
+        <div class="achv-card reveal">
+          <p class="achv-card__num" data-count="1" data-suffix="">0</p>
+          <p class="achv-card__label">Campus Ambassador — Internshala</p>
+        </div>
+        <div class="achv-card reveal">
+          <p class="achv-card__num" data-count="1" data-suffix="">0</p>
+          <p class="achv-card__label">Campus Ambassador — IIT Delhi E-Cell</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container container--narrow">
+      <p class="section-eyebrow reveal">Contact</p>
+      <h2 class="section-title reveal">Let's build something amazing together.</h2>
+      <p class="section-lead reveal">Open to freelance projects, internships, and anything genuinely interesting.</p>
+
+      <div class="contact__grid">
+        <form class="contact-form reveal" id="contactForm">
+          <label class="field">
+            <span class="field__label">Name</span>
+            <input class="field__input" type="text" name="name" id="cfName" required placeholder="Your name" />
+          </label>
+          <label class="field">
+            <span class="field__label">Email</span>
+            <input class="field__input" type="email" name="email" id="cfEmail" required placeholder="you@example.com" />
+          </label>
+          <label class="field">
+            <span class="field__label">Message</span>
+            <textarea class="field__input field__input--area" name="message" id="cfMessage" required placeholder="Tell me about the project..." rows="4"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+          <p class="field__status" id="formStatus" role="status"></p>
+        </form>
+
+        <div class="contact-side reveal">
+          <a class="contact-email" href="mailto:piyusharyangecp@gmail.com">piyusharyangecp@gmail.com</a>
+
+          <div class="contact-socials">
+            <a href="https://github.com/piyusharyan5" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.49 2.87 8.3 6.84 9.65.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.56 2.36 1.11 2.93.85.09-.66.34-1.11.62-1.36-2.22-.26-4.55-1.13-4.55-5.02 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.31.1-2.72 0 0 .84-.27 2.75 1.04a9.4 9.4 0 0 1 5 0c1.91-1.31 2.75-1.04 2.75-1.04.55 1.41.2 2.46.1 2.72.64.71 1.03 1.62 1.03 2.73 0 3.9-2.34 4.76-4.57 5.01.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/piyusharyan5" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5s1.98.9 1.98 2ZM1 8.25h4V22H1V8.25Zm7 0h3.84v1.88h.05c.53-1 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V22h-4v-6.86c0-1.64-.03-3.74-2.28-3.74-2.29 0-2.64 1.79-2.64 3.62V22H8V8.25Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:piyusharyangecp@gmail.com" class="social-btn" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14H3V5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m3 5 9 7 9-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              <span>Email</span>
+            </a>
+          </div>
+
+          <p class="contact-loc">Based in Ramgarh, Jharkhand, India — happy to work with teams anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>Designed &amp; Developed by Piyush Aryan</p>
+    <div class="site-footer__links">
+      <a href="https://github.com/piyusharyan5" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/piyusharyan5" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:piyusharyangecp@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Command palette -->
+<div class="palette" id="palette" aria-hidden="true">
+  <div class="palette__backdrop" id="paletteBackdrop"></div>
+  <div class="palette__panel" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette__search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="text" id="paletteInput" placeholder="Jump to a section..." autocomplete="off" />
+      <span class="kbd">Esc</span>
+    </div>
+    <ul class="palette__list" id="paletteList">
+      <li data-target="#hero">Home</li>
+      <li data-target="#about">About</li>
+      <li data-target="#skills">Skills</li>
+      <li data-target="#experience">Experience</li>
+      <li data-target="#project">Featured Work — FocusFlows</li>
+      <li data-target="#achievements">Achievements</li>
+      <li data-target="#contact">Contact</li>
+    </ul>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
